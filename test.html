@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prueba de CORS</title>
+</head>
+<body>
+<button id="realizar-solicitud">Realizar Solicitud CORS</button>
+<div id="resultado"></div>
+
+<script>
+  document.getElementById('realizar-solicitud').addEventListener('click', function () {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'http://localhost:8080/string', true);
+      xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4) {
+              if (xhr.status === 200) {
+                  document.getElementById('resultado').textContent = 'Respuesta exitosa: ' + xhr.responseText;
+              } else {
+                  document.getElementById('resultado').textContent = 'Error: ' + xhr.status;
+              }
+          }
+      };
+      xhr.send();
+  });
+</script>
+</body>
+</html>
