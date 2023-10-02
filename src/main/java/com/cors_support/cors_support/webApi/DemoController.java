@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
   @GetMapping(value = "/string")
-  @CrossOrigin(origins = "http://localhost:8080")
+  @CrossOrigin(origins = "http://localhost:8081")
   public ResponseEntity<String> getString() {
     return new ResponseEntity<>("This is a Demo", HttpStatus.OK);
   }
